@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -14,9 +15,9 @@
     <link rel="stylesheet" href="assets/css/mobile.css" media="screen and (max-width: 540px)">
     <title>Boolzapp</title>
 </head>
+
 <body>
     <div id="app" class="container">
-        <div>{{ message }}</div>
         <!-- contenitore sx -->
         <div class="left">
             <div class="header-left">
@@ -45,100 +46,23 @@
                 <input id="contacts-filter" class="left-searchbar-input" placeholder="Cerca o inizia una nuova chat"
                     name="search">
             </div>
+
+            <!-- contacts dinamici HALLEUIA-->
+
             <div class="contacts">
-                <div class="contact">
+                <div v-for="contact in contacts" 
+                class="contact" >
                     <div class="contact-logo">
-                        <img src="assets/img/avatar_1.jpg" alt="Avatar Michele">
+                        <img :src="'assets/img/avatar' + contact.avatar + '.jpg'" :alt="">
                     </div>
                     <div class="contact-info">
                         <h3>
-                            <span class="contact-name">Michele</span>
-                            <span class="time">16:15</span>
+                            <span class="contact-name">{{ contact.name }}</span>
+                            <!-- orario messaggio -->
+                            <span class="time">{{ contact.messages[contact.messages.length - 1].date }}</span>
                         </h3>
-                        <small>Lorem ipsum dolor sit amet</small>
-                    </div>
-                </div>
-                <div class="contact">
-                    <div class="contact-logo">
-                        <img src="assets/img/avatar_2.jpg" alt="Avatar Fabio">
-                    </div>
-                    <div class="contact-info">
-                        <h3>
-                            <span class="contact-name">Fabio</span>
-                            <span class="time">16:05</span>
-                        </h3>
-                        <small>Lorem ipsum dolor sit amet</small>
-                    </div>
-                </div>
-                <div class="contact">
-                    <div class="contact-logo">
-                        <img src="assets/img/avatar_3.jpg" alt="Avatar Samuele">
-                    </div>
-                    <div class="contact-info">
-                        <h3>
-                            <span class="contact-name">Samuele</span>
-                            <span class="time">16:03</span>
-                        </h3>
-                        <small>Lorem ipsum dolor sit amet</small>
-                    </div>
-                </div><div class="contact">
-                    <div class="contact-logo">
-                        <img src="assets/img/avatar_4.jpg" alt="Avatar Alessandro B.">
-                    </div>
-                    <div class="contact-info">
-                        <h3>
-                            <span class="contact-name">Alessandro B.</span>
-                            <span class="time">15:50</span>
-                        </h3>
-                        <small>Lorem ipsum dolor sit amet</small>
-                    </div>
-                </div>
-                <div class="contact">
-                    <div class="contact-logo">
-                        <img src="assets/img/avatar_5.jpg" alt="Avatar Alessandro L.">
-                    </div>
-                    <div class="contact-info">
-                        <h3>
-                            <span class="contact-name">Alessandro L.</span>
-                            <span class="time">15:45</span>
-                        </h3>
-                        <small>Lorem ipsum dolor sit amet</small>
-                    </div>
-                </div>
-                <div class="contact">
-                    <div class="contact-logo">
-                        <img src="assets/img/avatar_6.jpg" alt="Avatar Claudia">
-                    </div>
-                    <div class="contact-info">
-                        <h3>
-                            <span class="contact-name">Claudia</span>
-                            <span class="time">15:40</span>
-                        </h3>
-                        <small>Lorem ipsum dolor sit amet</small>
-                    </div>
-                </div>
-                <div class="contact">
-                    <div class="contact-logo">
-                        <img src="assets/img/avatar_7.jpg" alt="Avatar Federico">
-                    </div>
-                    <div class="contact-info">
-                        <h3>
-                            <span class="contact-name">Federico</span>
-                            <span class="time">15:22</span>
-                        </h3>
-                        <small>Lorem ipsum dolor sit amet</small>
-                    </div>
-                </div>
-                <div class="contact">
-                    <div class="contact-logo">
-                        <img src="assets/img/avatar_8.jpg" alt="Avatar Davide">
-                    </div>
-                    <div class="contact-info">
-                        <h3>
-                            <span class="contact-name">Davide</span>
-                            <span class="time">15:15</span>
-                        </h3>
-                        <small>Lorem ipsum dolor sit amet</small>
+                        <!-- messaggio dell'ultimo messaggio!!!!  -->
+                        <small>{{ contact.messages[contact.messages.length - 1].message }}</small>
                     </div>
                 </div>
             </div>
@@ -164,7 +88,9 @@
                     <div class="message sent">
                         <div class="message-inner">
                             <span class="message-text">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat eos blanditiis architecto expedita aspernatur quasi, et nobis aut officiis soluta voluptates nesciunt voluptate ipsa fuga rerum doloribus, unde laboriosam doloremque?
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat eos blanditiis
+                                architecto expedita aspernatur quasi, et nobis aut officiis soluta voluptates nesciunt
+                                voluptate ipsa fuga rerum doloribus, unde laboriosam doloremque?
                             </span>
                             <div class="message-options">
                                 <i class="fa fa-chevron-down"></i>
@@ -179,8 +105,10 @@
                     <div class="message received">
                         <div class="message-inner">
                             <span class="message-text">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat eos blanditiis architecto expedita
-                                aspernatur quasi, et nobis aut officiis soluta voluptates nesciunt voluptate ipsa fuga rerum doloribus, unde
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat eos blanditiis
+                                architecto expedita
+                                aspernatur quasi, et nobis aut officiis soluta voluptates nesciunt voluptate ipsa fuga
+                                rerum doloribus, unde
                                 laboriosam doloremque?
                             </span>
                             <div class="message-options">
@@ -209,4 +137,5 @@
     </div>
 </body>
 <script src="./assets/data.js"></script>
+
 </html>

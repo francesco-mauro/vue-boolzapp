@@ -1,10 +1,8 @@
-const { createApp } = Vue
-
+const { createApp } = Vue;
 
 createApp({
     data() {
         return {
-            message: 'Hello Vue!',
             contacts: [
                 {
                     name: 'Michele',
@@ -167,8 +165,11 @@ createApp({
                         }
                     ],
                 }
-            ]
-        }
-    }
-}).mount('#app')
+            ],
+            
+        };
+    },
+    methods: {
+    },
+}).mount('#app');
 
