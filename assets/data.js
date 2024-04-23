@@ -166,10 +166,11 @@ createApp({
                     ],
                 }
             ],
-            activeIndex: 1
+            activeIndex: 0
         };
     },
     methods: {
+
     },
 }).mount('#app');
 
