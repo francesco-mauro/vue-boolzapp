@@ -48,9 +48,8 @@
             </div>
 
             <!-- contacts dinamici HALLEUIA-->
-
             <div class="contacts">
-                <div v-for="contact in contacts" class="contact">
+                <div v-for="(contact,index) in contacts" class="contact" @click="changeActiveContact(index)">
                     <div class="contact-logo">
                         <img :src="'assets/img/avatar' + contact.avatar + '.jpg'" :alt="">
                     </div>
@@ -85,41 +84,11 @@
             </div>
             <div class="right-messages-container">
                 <div class="right-messages">
-                    <div class="message sent">
+                    <div v-for="message in contacts[activeIndex].messages" :class="['message', message.status]">
                         <div class="message-inner">
-                            <span class="message-text">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat eos blanditiis
-                                architecto expedita aspernatur quasi, et nobis aut officiis soluta voluptates nesciunt
-                                voluptate ipsa fuga rerum doloribus, unde laboriosam doloremque?
-                            </span>
-                            <div class="message-options">
-                                <i class="fa fa-chevron-down"></i>
-                                <div class="message-options-panel">
-                                    <div class="message-info">Info messaggio</div>
-                                    <div class="message-destroy">Cancella messaggio</div>
-                                </div>
-                            </div>
+                            <span class="message-text">{{ message.message }}</span>
                         </div>
-                        <span class="message-time">16:13</span>
-                    </div>
-                    <div class="message received">
-                        <div class="message-inner">
-                            <span class="message-text">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat eos blanditiis
-                                architecto expedita
-                                aspernatur quasi, et nobis aut officiis soluta voluptates nesciunt voluptate ipsa fuga
-                                rerum doloribus, unde
-                                laboriosam doloremque?
-                            </span>
-                            <div class="message-options">
-                                <i class="fa fa-chevron-down"></i>
-                                <div class="message-options-panel">
-                                    <div class="message-info">Info messaggio</div>
-                                    <div class="message-destroy">Cancella messaggio</div>
-                                </div>
-                            </div>
-                        </div>
-                        <span class="message-time">16:15</span>
+                        <span class="message-time">{{ message.date }}</span>
                     </div>
                 </div>
             </div>
@@ -127,7 +96,7 @@
                 <div class="right-footer-icon">
                     <i class="far fa-smile"></i>
                 </div>
-                <input class="new-message-inputs" placeholder="Scrivi un messaggio">
+                <input class="new-message-inputs" placeh lder="Scrivi un messaggio">
                 <div class="right-footer-icon">
                     <i class="fa fa-microphone" aria-hidden="true"></i>
                 </div>

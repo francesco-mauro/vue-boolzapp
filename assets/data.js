@@ -170,7 +170,11 @@ createApp({
         };
     },
     methods: {
-
+        // funzione cambiamento indice attivo
+        changeActiveContact: function(clickedIndex){
+            // console.log(clickedIndex);
+            this.activeIndex = clickedIndex;
+        }
     },
 }).mount('#app');
 
