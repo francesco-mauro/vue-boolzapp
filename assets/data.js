@@ -166,7 +166,7 @@ createApp({
                     ],
                 }
             ],
-            
+            activeIndex: 1
         };
     },
     methods: {
