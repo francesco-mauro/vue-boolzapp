@@ -96,7 +96,8 @@
                 <div class="right-footer-icon">
                     <i class="far fa-smile"></i>
                 </div>
-                <input class="new-message-inputs" placeh lder="Scrivi un messaggio">
+                <!-- gestione dell'evento di invio messaggio con keyup, come da suggerimento -->
+                <input class="new-message-inputs" placeholder="Scrivi un messaggio" v-model="newMessage" @keyup.enter="sendMessage">
                 <div class="right-footer-icon">
                     <i class="fa fa-microphone" aria-hidden="true"></i>
                 </div>

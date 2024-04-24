@@ -174,7 +174,31 @@ createApp({
         changeActiveContact: function(clickedIndex){
             // console.log(clickedIndex);
             this.activeIndex = clickedIndex;
+        },
+        sendMessage() {
+            // aggiunto trim per il bonus+
+            if (this.newMessage.trim() !== '') {
+                const newMsg = {
+                    //mon sono riuscito a usare Luxon, come stopgap uso new Date().toLocaleString()
+                    date: new Date().toLocaleString(),
+                    message: this.newMessage,
+                    status: 'sent'
+                };
+                this.contacts[this.activeIndex].messages.push(newMsg);
+                // Reset dell'input dopo l'invio
+                this.newMessage = '';
+                this.autoReply();
+            }
+        },
+        autoReply() {
+            setTimeout(() => {
+                const reply = {
+                    date: new Date().toLocaleString(),
+                    message: 'Ok',
+                    status: 'received'
+                };
+                this.contacts[this.activeIndex].messages.push(reply);
+            }, 1000); // Risposta dopo 1 secondo
         }
-    },
+    }
 }).mount('#app');
-
