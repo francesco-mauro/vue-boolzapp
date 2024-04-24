@@ -166,12 +166,37 @@ createApp({
                     ],
                 }
             ],
-            activeIndex: 0
+            searchText: '',
+            activeIndex: 0,
+            filteredContacts: [],
+            newMessage: '',
         };
     },
+    // Inizializzo filteredContacts all'avvio con tutti i contatti di contacts, crendo una copisa con spreadoperator
+    mounted() {
+        this.filteredContacts = [...this.contacts];
+    },
     methods: {
+        filterContacts() {
+            // Converto il testo in minuscolo per evitare problemi
+            const searchTextLower = this.searchText.toLowerCase();
+
+
+            // Filtra i contatti in base al testo di ricerca
+            // utilizzo filter per creare un nuovo array di contatti che rispetta le condizioni che sto dando (tramite includes)
+            // se true dovrebbe finire nell'array
+            // l'array filtrato viene assegnato a filteredContacts
+
+            this.filteredContacts = this.contacts.filter(function (contact) {
+                return contact.name.toLowerCase().includes(searchTextLower);
+            });
+            console.log('Testo di ricerca:', this.searchText);
+            console.log('Contatti filtrati:', this.filteredContacts);
+
+        },
+
         // funzione cambiamento indice attivo
-        changeActiveContact: function(clickedIndex){
+        changeActiveContact: function (clickedIndex) {
             // console.log(clickedIndex);
             this.activeIndex = clickedIndex;
         },
