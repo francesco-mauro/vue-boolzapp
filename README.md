@@ -1,5 +1,7 @@
 # Boolzapp
 
+**Prova la demo:** https://francesco-mauro.github.io/vue-boolzapp/
+
 Una replica di WhatsApp Web in Vue.js, fatta durante il Master Full Stack di Boolean ad aprile 2024.
 
 ## Cosa fa
