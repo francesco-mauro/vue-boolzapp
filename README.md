@@ -14,14 +14,16 @@ Una replica di WhatsApp Web in Vue.js, scritta ad aprile 2024 durante il Master 
 
 ## Bug corretti nel 2026
 
-Il progetto è del 2024 e il codice è rimasto quello di allora, tranne due correzioni fatte a novembre 2026:
+Il progetto è del 2024 e il codice è rimasto quello di allora, tranne alcune correzioni fatte a novembre 2026:
 
 - **Ricerca e chat sbagliata:** con la ricerca attiva, cliccando un contatto si apriva la chat di un altro. Il click passava la posizione nella lista filtrata, che poi veniva usata su quella completa. Ora passa il contatto, e la sua posizione si cerca nella lista completa.
 - **Telefono:** sotto i 540 pixel la colonna dei contatti spariva e non si poteva più cambiare chat. Ora resta, con i soli avatar.
+- **Risposta automatica nella chat sbagliata:** se dopo aver scritto si cambiava chat entro un secondo, l'«Ok» arrivava nella chat appena aperta. Ora il contatto viene salvato prima del timer.
+- **Versione di Vue fissa:** la pagina caricava sempre l'ultima Vue 3, ora la 3.5.44, così un aggiornamento non può rompere la demo.
 
 ## Strumenti
 
-Vue 3 (da CDN, senza build), HTML, CSS con media query per tablet e mobile, Font Awesome.
+Vue 3.5.44 (da CDN, senza build), HTML, CSS con media query per tablet e mobile, Font Awesome.
 
 ## Come provarlo
 
