@@ -1,7 +1,12 @@
 .header-right .header-right-icons,
-.right-footer-icon,
-.left {
+.right-footer-icon {
     display: none;
+}
+
+/* la colonna dei contatti resta, solo avatar e più stretta, così si può cambiare chat anche da telefono */
+.left {
+    width: 64px;
+    flex-shrink: 0;
 }
 
 .right .right-footer .new-message-inputs {
