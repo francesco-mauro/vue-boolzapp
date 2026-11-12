@@ -196,9 +196,10 @@ createApp({
         },
 
         // funzione cambiamento indice attivo
-        changeActiveContact: function (clickedIndex) {
-            // console.log(clickedIndex);
-            this.activeIndex = clickedIndex;
+        // riceve il contatto cliccato e ne cerca la posizione nella lista completa:
+        // con la ricerca attiva l'indice della lista filtrata non coincide con quello di contacts
+        changeActiveContact: function (clickedContact) {
+            this.activeIndex = this.contacts.indexOf(clickedContact);
         },
         sendMessage() {
             // aggiunto trim per il bonus+

@@ -53,7 +53,7 @@
             <!-- contacts dinamici HALLEUIA-->
             <div class="contacts">
                 <!-- filteredContacts - contacts -->
-                <div v-for="(contact,index) in filteredContacts" class="contact" @click="changeActiveContact(index)">
+                <div v-for="contact in filteredContacts" class="contact" @click="changeActiveContact(contact)">
                     <div class="contact-logo">
                         <img :src="'assets/img/avatar' + contact.avatar + '.jpg'" :alt="">
                     </div>
