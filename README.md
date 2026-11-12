@@ -25,6 +25,8 @@ Il progetto è del 2024 e il codice è rimasto quello di allora, tranne alcune c
 
 Vue 3.5.44 (da CDN, senza build), HTML, CSS con media query per tablet e mobile, Font Awesome.
 
+Claude Code, come assistente per le correzioni del 2026 e per questo README.
+
 ## Come provarlo
 
 Non serve installare niente: scarica il repository e apri `index.html` nel browser.
