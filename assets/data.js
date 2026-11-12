@@ -217,13 +217,16 @@ createApp({
             }
         },
         autoReply() {
+            // salvo il contatto della chat prima del timer:
+            // se nel frattempo si cambia chat, la risposta arriva comunque a chi ha ricevuto il messaggio
+            const contact = this.contacts[this.activeIndex];
             setTimeout(() => {
                 const reply = {
                     date: new Date().toLocaleString(),
                     message: 'Ok',
                     status: 'received'
                 };
-                this.contacts[this.activeIndex].messages.push(reply);
+                contact.messages.push(reply);
             }, 1000); // Risposta dopo 1 secondo
         }
     }
